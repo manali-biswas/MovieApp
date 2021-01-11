@@ -1,0 +1,21 @@
+.mycarousel-enter{
+    opacity:0.01;
+    transform: opacity;
+}
+
+.mycarousel-enter-active{
+    opacity:1;
+    transform: opacity;
+    transition: all 500ms ease-in;
+}
+
+.mycarousel-exit{
+    opacity:1;
+    transform: opacity;    
+}
+
+.mycarousel-exit-active{
+    opacity:0;
+    transform: opacity;
+    transition: all 500ms ease-out;
+}
