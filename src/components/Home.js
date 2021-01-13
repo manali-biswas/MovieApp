@@ -5,7 +5,7 @@ import { SwitchTransition, CSSTransition } from "react-transition-group";
 const slides = [
     {
         id: 0,
-        src: "./MovieApp/assets/images/battleship.jpg",
+        src: "./assets/images/battleship.jpg",
         alt: "Battleship",
         tagline: "The Battle for Earth Begins at Sea",
         overview: "When mankind beams a radio signal into space, a reply comes from ‘Planet G’, in the form of several alien crafts that splash down in the waters off Hawaii. Lieutenant Alex Hopper is a weapons officer assigned to the USS John Paul Jones, part of an international naval coalition which becomes the world's last hope for survival as they engage the hostile alien force of unimaginable strength. While taking on the invaders, Hopper must also try to live up to the potential that his brother, and his fiancée's father—an Admiral—expect of him.",
@@ -14,7 +14,7 @@ const slides = [
     },
     {
         id: 1,
-        src: "./MovieApp/assets/images/AVA.jpg",
+        src: "./assets/images/AVA.jpg",
         alt: "AVA",
         tagline: "Kill. Or be killed.",
         overview: "A black ops assassin is forced to fight for her own survival after a job goes dangerously wrong.",
@@ -23,7 +23,7 @@ const slides = [
     },
     {
         id: 2,
-        src: "./MovieApp/assets/images/Sweet Home.jpg",
+        src: "./assets/images/Sweet Home.jpg",
         alt: "Sweet Home",
         tagline: "Series",
         overview: "Cha Hyun-Soo is a high school student. He is also a recluse and rarely leaves his room. He refuses to talk to his father, mother and younger sister. One day, his whole family, except for him, dies in a car accident. Cha Hyun-Soo is left all alone. He moves into a small apartment. At this time, a mysterious phenomenon of humans turning into monster occur all around the world. The residents of Cha Hyun-Soo's apartment building, including Pyeon Sang-Wook, fight against these monsters and try to survive.",

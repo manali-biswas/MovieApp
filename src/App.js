@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename="/MovieApp">
           <Main history={history}/>
         </BrowserRouter>
       </Provider>
