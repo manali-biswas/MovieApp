@@ -66,9 +66,31 @@ export const searchFailed = (err) => ({
     payload: err
 })
 
-export const getSearch = (search) => (dispatch) => {
+export const getMovieSearch = (search) => (dispatch) => {
     dispatch(searchLoading(true));
     axios.get(baseUrl + "search/movie", {
+        params: {
+            api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
+            query: search
+    }})
+        .then(response => { console.log(response.data.results); dispatch(addSearch(response.data.results)) })
+        .catch(err => dispatch(searchFailed(err.message)));
+}
+
+export const getTVSearch = (search) => (dispatch) => {
+    dispatch(searchLoading(true));
+    axios.get(baseUrl + "search/tv", {
+        params: {
+            api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
+            query: search
+    }})
+        .then(response => { console.log(response.data.results); dispatch(addSearch(response.data.results)) })
+        .catch(err => dispatch(searchFailed(err.message)));
+}
+
+export const getPersonSearch = (search) => (dispatch) => {
+    dispatch(searchLoading(true));
+    axios.get(baseUrl + "search/person", {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
             query: search

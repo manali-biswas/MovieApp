@@ -1,8 +1,10 @@
 import { Media } from "reactstrap";
 import RenderMovie from "./RenderMovie";
+import RenderTV from "./RenderTV";
+import RenderPerson from "./RenderPerson";
 import Loading from "./Loading";
 
-function SearchResults({ loading, err, results }) {
+function SearchResults({ loading, err, results, choice }) {
     if (loading) {
         return (<div className="container mt-5">
             <Loading />
@@ -13,8 +15,22 @@ function SearchResults({ loading, err, results }) {
             {err}
         </div>);
     }
-    const movies=results.map((movie) => {
-        return(<RenderMovie movie={movie}/>)
+
+    const items = results.map((item) => {
+        switch (choice) {
+            case "movie":
+                return (<RenderMovie movie={item} key={ item.id }/>)
+            case "tv":
+
+                return (<RenderTV tv={item} key={ item.id } />)
+
+            case "person":
+
+                return (<RenderPerson person={item} key={ item.id } />)
+
+            default:
+                return (<div></div>);
+        }
     });
 
     return (
@@ -22,7 +38,7 @@ function SearchResults({ loading, err, results }) {
             <h1>Search Results</h1>
 
             <Media list className="mt-5">
-                {movies}
+                {items}
             </Media>
         </div>
     )
