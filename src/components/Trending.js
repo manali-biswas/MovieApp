@@ -19,7 +19,7 @@ class Trending extends Component{
         }
         var itemslist;
         switch (this.props.choice) {
-            case "movies":
+            case "movie":
                 itemslist=this.props.results.map((item) => {
                     return(<RenderMovie movie={item}/>)
                 });
@@ -45,9 +45,9 @@ class Trending extends Component{
                 <h1>Trending</h1>
                 <h3>Top {this.props.choice} of the week</h3>
                 <div className="mt-3">           
-                    <Button color="outline-dark" className="mr-2" onClick={this.props.onMovieClick}>Movies</Button>
-                    <Button color="outline-dark" className="mr-2" onClick={this.props.onTVClick}>TV Shows</Button>
-                    <Button color="outline-dark" className="mr-2" onClick={this.props.onPersonClick}>People</Button>
+                    <Button color="outline-dark" className="mr-2" onClick={this.props.onMovieClick} active={this.props.choice==="movie"? true: false}>Movies</Button>
+                    <Button color="outline-dark" className="mr-2" onClick={this.props.onTVClick} active={this.props.choice==="tv"? true: false}>TV Shows</Button>
+                    <Button color="outline-dark" className="mr-2" onClick={this.props.onPersonClick} active={this.props.choice==="person"? true: false}>People</Button>
                 </div>
                 
                 

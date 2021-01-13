@@ -12,6 +12,8 @@ export const Search = (state = {
             return { ...state, results: action.payload, err: null, isLoading: false };
         case ActionTypes.SEARCH_FAILED:
             return { ...state, results: [], err: action.payload, isLoading: false };
+        case ActionTypes.SEARCH_CHANGED:
+            return { ...state, results: [], err: null, isLoading: false };
         default:
             return state;
     }

@@ -26,7 +26,7 @@ class SearchForm extends Component{
                 break;    
         }
         
-        this.props.history.push("/searchresults");
+        this.props.history.push("/search/"+this.props.choice);
         event.preventDefault();
     }
 

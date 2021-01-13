@@ -35,7 +35,7 @@ function SearchResults({ loading, err, results, choice }) {
 
     return (
         <div className="container mt-5">
-            <h1>Search Results</h1>
+            <h2>Search Results</h2>
 
             <Media list className="mt-5">
                 {items}

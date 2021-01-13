@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Navbar, NavbarBrand, Nav, NavItem, Form, Button, NavbarToggler, Collapse, Input} from "reactstrap";
+import { Navbar, NavbarBrand, Nav, NavItem, NavbarToggler, Collapse} from "reactstrap";
 import { NavLink } from "react-router-dom";
 import SearchForm from "./SearchForm";
 

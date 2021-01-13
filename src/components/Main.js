@@ -3,11 +3,10 @@ import Header from "./Header";
 import Home from "./Home";
 import Footer from "./Footer";
 import Trending from "./Trending";
-import SearchResults from "./SearchResults";
 import CategorySearch from "./CategorySearch";
 import { Redirect, Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchMovies, fetchPerson, fetchTV, getMovieSearch, getPersonSearch, getTVSearch } from "../redux/ActionCreators";
+import { fetchMovies, fetchPerson, fetchTV, getMovieSearch, getPersonSearch, getTVSearch, changeSearchOption } from "../redux/ActionCreators";
 
 const mapStateToProps = state => {
     return {
@@ -22,7 +21,8 @@ const mapDispatchToProps = (dispatch) => ({
     fetchTV: () => dispatch(fetchTV()),
     getMovieSearch: (query)=>dispatch(getMovieSearch(query)),
     getTVSearch: (query)=>dispatch(getTVSearch(query)),
-    getPersonSearch: (query)=>dispatch(getPersonSearch(query))
+    getPersonSearch: (query) => dispatch(getPersonSearch(query)),
+    changeSearchOption: () => dispatch(changeSearchOption())
 })
 
 class Main extends Component{
@@ -30,7 +30,8 @@ class Main extends Component{
         super(props);
 
         this.state = {
-            choice : null
+            trendchoice: null,
+            searchchoice : null
         }
 
         this.setTrendingMovie = this.setTrendingMovie.bind(this);
@@ -40,29 +41,33 @@ class Main extends Component{
     }
     setTrendingMovie() {
         this.setState({
-            choice: "movies"
+            trendchoice: "movie"
         });
         this.props.fetchMovies();
     }
 
     setTrendingTV() {
         this.setState({
-            choice: "tv"
+            trendchoice: "tv"
         });
         this.props.fetchTV();
     }
 
     setTrendingPerson() {
         this.setState({
-            choice: "person"
+            trendchoice: "person"
         });
         this.props.fetchPerson();
     }
 
     onClick(event) {
+        if (this.state.searchchoice !== event.target.id) {
+            this.props.changeSearchOption();
+        }
         this.setState({
-            choice: event.target.id
+            searchchoice: event.target.id
         });
+        this.props.history.push("/search/" + event.target.id);
     }
 
     render() {
@@ -71,12 +76,14 @@ class Main extends Component{
                 <Header getMovieSearch={this.props.getMovieSearch} history={ this.props.history }/>
                 <Switch>
                     {
-                        // use searchresults as a component in categorysearch instead of different route
+                        //paths for individual tv, movie and person
                     }
                         <Route path="/home" component={() => <Home />} />
-                        <Route path="/trending" component={() => <Trending choice={this.state.choice} results={this.props.trending.results} loading={this.props.trending.isLoading} onMovieClick={this.setTrendingMovie} onTVClick={this.setTrendingTV} onPersonClick={this.setTrendingPerson} />} />
-                    <Route path="/searchresults" component={() => <SearchResults results={this.props.search.results} loading={this.props.search.isLoading} err={this.props.search.err} choice={ this.state.choice }/>} />
-                    <Route exact path="/search" component={() => <CategorySearch onClick={this.onClick} getTVSearch={this.props.getTVSearch} getMovieSearch={this.props.getMovieSearch} getPersonSearch={this.props.getPersonSearch} history={this.props.history} choice={ this.state.choice }/>}/>
+                        <Route path="/trending" component={() => <Trending choice={this.state.trendchoice} results={this.props.trending.results} loading={this.props.trending.isLoading} onMovieClick={this.setTrendingMovie} onTVClick={this.setTrendingTV} onPersonClick={this.setTrendingPerson} />} />
+                        <Route exact path="/search" component={() => <CategorySearch results={this.props.search.results} loading={this.props.search.isLoading} err={this.props.search.err} choice={null} onClick={this.onClick} getTVSearch={this.props.getTVSearch} getMovieSearch={this.props.getMovieSearch} getPersonSearch={this.props.getPersonSearch} history={this.props.history} />} />
+                        <Route path="/search/movie" component={() => <CategorySearch results={this.props.search.results} loading={this.props.search.isLoading} err={this.props.search.err} choice="movie" onClick={this.onClick} getTVSearch={this.props.getTVSearch} getMovieSearch={this.props.getMovieSearch} getPersonSearch={this.props.getPersonSearch} history={this.props.history} />} />
+                        <Route path="/search/tv" component={() => <CategorySearch results={this.props.search.results} loading={this.props.search.isLoading} err={this.props.search.err} choice="tv" onClick={this.onClick} getTVSearch={this.props.getTVSearch} getMovieSearch={this.props.getMovieSearch} getPersonSearch={this.props.getPersonSearch} history={this.props.history} />} />
+                        <Route path="/search/person" component={()=><CategorySearch results={this.props.search.results} loading={this.props.search.isLoading} err={this.props.search.err} choice="person" onClick={this.onClick} getTVSearch={this.props.getTVSearch} getMovieSearch={this.props.getMovieSearch} getPersonSearch={this.props.getPersonSearch} history={this.props.history}/>}/>
                         <Redirect to="/home"/>
                     </Switch>
                 <Footer />

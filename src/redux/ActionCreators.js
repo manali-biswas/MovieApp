@@ -98,3 +98,7 @@ export const getPersonSearch = (search) => (dispatch) => {
         .then(response => { console.log(response.data.results); dispatch(addSearch(response.data.results)) })
         .catch(err => dispatch(searchFailed(err.message)));
 }
+
+export const changeSearchOption = () => ({
+    type: ActionTypes.SEARCH_CHANGED
+})

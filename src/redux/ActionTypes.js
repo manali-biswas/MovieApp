@@ -4,3 +4,4 @@ export const CHOICE_FAILED = "CHOICE_FAILED";
 export const ADD_SEARCH = "ADD_SEARCH";
 export const SEARCH_LOADING = "SEARCH_LOADING";
 export const SEARCH_FAILED = "SEARCH_FAILED";
+export const SEARCH_CHANGED = "SEARCH_CHANGED";
