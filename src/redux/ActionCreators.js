@@ -95,10 +95,92 @@ export const getPersonSearch = (search) => (dispatch) => {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
             query: search
     }})
-        .then(response => { console.log(response.data.results); dispatch(addSearch(response.data.results)) })
+        .then(response => dispatch(addSearch(response.data.results)))
         .catch(err => dispatch(searchFailed(err.message)));
 }
 
 export const changeSearchOption = () => ({
     type: ActionTypes.SEARCH_CHANGED
 })
+
+export const genresLoading = ()=> ({
+    type: ActionTypes.GENRES_LOADING
+})
+
+export const genresFailed = (err)=> ({
+    type: ActionTypes.GENRES_FAILED,
+    payload: err
+})
+
+export const addGenres = (result)=> ({
+    type: ActionTypes.ADD_GENRES,
+    payload: result
+})
+
+export const fetchMovieGenres = () => (dispatch) => {
+    dispatch(genresLoading(true));
+
+    
+    axios.get(baseUrl + "genre/movie/list", {
+        params: {
+            api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
+    }})
+        .then(response => dispatch(addGenres(response.data.genres)) )
+        .catch(err => dispatch(genresFailed(err.message)));
+}
+
+export const fetchTVGenres = () => (dispatch) => {
+    dispatch(genresLoading(true));
+
+    
+    axios.get(baseUrl + "genre/tv/list", {
+        params: {
+            api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
+    }})
+        .then(response => dispatch(addGenres(response.data.genres)) )
+        .catch(err => dispatch(genresFailed(err.message)));
+}
+
+export const discoverLoading = () => ({
+    type: ActionTypes.DISCOVER_LOADING
+})
+
+export const discoverFailed = (err) => ({
+    type: ActionTypes.DISCOVER_FAILED,
+    payload: err
+})
+
+export const addDiscover = (results) => ({
+    type: ActionTypes.ADD_DISCOVER,
+    payload: results
+})
+
+export const fetchDiscoverMovies = (with_genres, sort) => (dispatch) => {
+
+    dispatch(discoverLoading(true));
+
+    axios.get(baseUrl + "discover/movie", {
+        params: {
+            api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
+            with_genres: with_genres.join(),
+            sort_by: sort
+        }
+    })
+        .then(response => dispatch(addDiscover(response.data.results)))
+        .catch(err => dispatch(discoverFailed(err.message)));
+}
+
+export const fetchDiscoverTV = (with_genres, sort) => (dispatch) => {
+
+    dispatch(discoverLoading(true));
+
+    axios.get(baseUrl + "discover/tv", {
+        params: {
+            api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
+            with_genres: with_genres.join(),
+            sort_by: sort
+        }
+    })
+        .then(response =>  dispatch(addDiscover(response.data.results)) )
+        .catch(err => dispatch(discoverFailed(err.message)));
+}

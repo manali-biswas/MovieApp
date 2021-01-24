@@ -37,7 +37,10 @@ class Header extends Component {
                             </NavItem>  
                             <NavItem>
                                 <NavLink className="nav-link" to="/search">Search by Category</NavLink>
-                            </NavItem>                      
+                            </NavItem>     
+                            <NavItem>
+                                <NavLink className="nav-link" to="/discover">Discover</NavLink>
+                            </NavItem>                     
                             </Nav>
                         </Collapse>
                         <SearchForm choice="movie" history={this.props.history} getMovieSearch={this.props.getMovieSearch}/>

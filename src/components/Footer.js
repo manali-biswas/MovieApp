@@ -14,10 +14,13 @@ function Footer() {
                                 <Link className="text-secondary" to="/home">Home</Link>
                             </li>
                             <li>
-                                <Link className="text-secondary" to="/categories">Categories</Link>
+                                <Link className="text-secondary" to="/trending">Trending</Link>
                             </li>
                             <li>
-                                <Link className="text-secondary" to="/trending">Trending</Link>
+                                <Link className="text-secondary" to="/search">Search</Link>
+                            </li>
+                            <li>
+                                <Link className="text-secondary" to="/discover">Discover</Link>
                             </li>
                         </ul>
                     </div>

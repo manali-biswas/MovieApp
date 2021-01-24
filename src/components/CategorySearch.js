@@ -19,7 +19,7 @@ class CategorySearch extends Component{
                     <SearchForm choice={this.props.choice} getMovieSearch={this.props.getMovieSearch} getTVSearch={this.props.getTVSearch} getPersonSearch={this.props.getPersonSearch} history={this.props.history}/>
                 </div>
                 <div className="mt-5">
-                    <SearchResults results={this.props.results} loading={this.props.isLoading} err={this.props.err} choice={ this.props.choice }/>
+                    <SearchResults results={this.props.results} loading={this.props.loading} err={this.props.err} choice={ this.props.choice }/>
                 </div>
             </div>
         )
