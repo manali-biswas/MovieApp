@@ -36,7 +36,7 @@ function PersonModalDetail({ details, detailloading, detailerr, toggle }) {
                     <div className="container">
                         <em>{details.known_for_department}</em>
                         <br /><br/>
-                        <p>{details.gender==2?"Male":details.gender==1?"Female":details.gender==0?"Other Gender":"Unknown"}</p>
+                        <p>{details.gender===2?"Male":details.gender===1?"Female":details.gender===0?"Other Gender":"Unknown"}</p>
                         <br />
                         <p><strong>Biography:  </strong>
                             {details.biography}</p>
@@ -61,7 +61,7 @@ function PersonModal({id,onModalClick,modal,ModalToggle,detailerr,detailloading,
         return (
             <div>
             <Button color="dark" onClick={onModalClick} id="person" name={id}>More Info</Button>
-            <Modal className="modal-lg" isOpen={modal.id==id?modal.value:false} toggle={ModalToggle}>
+            <Modal className="modal-lg" isOpen={modal.id===id?modal.value:false} toggle={ModalToggle}>
                     <PersonModalDetail toggle={ModalToggle} detailerr={detailerr} detailloading={detailloading} details={details}/>
             </Modal></div>
         )

@@ -73,7 +73,7 @@ function MovieModal({id,onModalClick,modal,ModalToggle,detailerr,detailloading,d
         return (
             <div>
             <Button color="dark" onClick={onModalClick} id="movie" name={id}>More Info</Button>
-            <Modal isOpen={modal.id==id?modal.value:false} toggle={ModalToggle}>
+            <Modal isOpen={modal.id===id?modal.value:false} toggle={ModalToggle}>
                     <MovieModalDetail toggle={ModalToggle} detailerr={detailerr} detailloading={detailloading} details={details}/>
             </Modal></div>
         )
