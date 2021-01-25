@@ -1,7 +1,8 @@
 import { Media } from "reactstrap";
 import { imageUrl } from "../shared/baseUrl";
+import MovieModal from "./MovieModal";
 
-function RenderMovie({ movie }) {
+function RenderMovie({ movie, details, detailloading, detailerr, modal, onModalClick, ModalToggle }) {
     return (
         <div>
         <Media key={movie.id} tag="li" className="mt-3">
@@ -15,7 +16,8 @@ function RenderMovie({ movie }) {
                 <h6>Overview</h6>
                 <p>{movie.overview}</p>
                 <h6>Date: <span>{movie.release_date}</span></h6>            
-                <h6>Popularity: <span>{movie.popularity}</span></h6>
+                    <h6>Popularity: <span>{movie.popularity}</span></h6>
+                    <MovieModal id={movie.id} modal={modal} details={details} detailloading={detailloading} detailerr={detailerr} ModalToggle={ModalToggle} onModalClick={onModalClick}/>
             </Media>
             <hr/>
             </Media>

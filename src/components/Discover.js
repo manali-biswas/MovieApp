@@ -25,7 +25,7 @@ class Discover extends Component{
                 </div>
                 
                 <div className="mt-5">
-                    <SearchResults results={this.props.results} loading={this.props.discoverLoading} err={this.props.discoverErr} choice={ this.props.choice }/>
+                    <SearchResults details={this.props.details} detailloading={this.props.detailloading} detailerr={this.props.detailerr} modal={ this.props.modal } ModalToggle={this.props.ModalToggle} onModalClick={this.props.onModalClick} results={this.props.results} loading={this.props.discoverLoading} err={this.props.discoverErr} choice={ this.props.choice }/>
                 </div>
             </div>
         )

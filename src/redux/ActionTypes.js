@@ -11,3 +11,6 @@ export const ADD_GENRES = "ADD_GENRES";
 export const DISCOVER_LOADING = "DISOCVER_LOADING";
 export const DISCOVER_FAILED = "DISCOVER_FAILED";
 export const ADD_DISCOVER = "ADD_DISCOVER";
+export const ADD_GET = "ADD_GET";
+export const GET_LOADING = "GET_LOADING";
+export const GET_FAILED = "GET_FAILED";

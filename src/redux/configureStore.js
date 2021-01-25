@@ -3,9 +3,8 @@ import { Trending } from "./trending";
 import { Search } from "./search";
 import { Genres } from "./genres";
 import { Discover } from "./discover";
+import { Object } from "./object";
 import thunk from "redux-thunk";
-import { createForms } from "react-redux-form";
-import { Filter } from "./forms";
 
 export const configureStore = () => {
     const store = createStore(
@@ -14,9 +13,7 @@ export const configureStore = () => {
             search: Search,
             genres: Genres,
             discover: Discover,
-            ...createForms({
-                filter: Filter
-            })
+            object: Object
         }),
         applyMiddleware(thunk)
     );
