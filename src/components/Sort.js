@@ -38,7 +38,7 @@ class Sort extends Component{
                         <DropdownItem onClick={ this.onClick } value="popularity.asc" active={this.state.active==="popularity.asc"?true:false}>Popularity Ascending</DropdownItem>                
                         <DropdownItem onClick={ this.onClick } value="popularity.desc" active={this.state.active==="popularity.desc"?true:false}>Popularity Descending</DropdownItem>
                         <DropdownItem onClick={ this.onClick } value="vote_average.asc" active={this.state.active==="vote_average.asc"?true:false}>Average Vote Ascending</DropdownItem>                
-                        <DropdownItem onClick={ this.onClick } value="vote_average.desc" active={this.state.active==="vote_average.asc"?true:false}>Average Vote Descending</DropdownItem>
+                        <DropdownItem onClick={ this.onClick } value="vote_average.desc" active={this.state.active==="vote_average.desc"?true:false}>Average Vote Descending</DropdownItem>
                     </DropdownMenu>
                 </ButtonDropdown>
             </div>
