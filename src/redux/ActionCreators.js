@@ -68,7 +68,7 @@ export const searchFailed = (err) => ({
 
 export const getMovieSearch = (search) => (dispatch) => {
     dispatch(searchLoading(true));
-    axios.get(baseUrl + "search/movie", {
+    return axios.get(baseUrl + "search/movie", {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
             query: search
@@ -79,7 +79,7 @@ export const getMovieSearch = (search) => (dispatch) => {
 
 export const getTVSearch = (search) => (dispatch) => {
     dispatch(searchLoading(true));
-    axios.get(baseUrl + "search/tv", {
+    return axios.get(baseUrl + "search/tv", {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
             query: search
@@ -90,7 +90,7 @@ export const getTVSearch = (search) => (dispatch) => {
 
 export const getPersonSearch = (search) => (dispatch) => {
     dispatch(searchLoading(true));
-    axios.get(baseUrl + "search/person", {
+    return axios.get(baseUrl + "search/person", {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
             query: search
@@ -121,7 +121,7 @@ export const fetchMovieGenres = () => (dispatch) => {
     dispatch(genresLoading(true));
 
     
-    axios.get(baseUrl + "genre/movie/list", {
+    return axios.get(baseUrl + "genre/movie/list", {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
     }})
@@ -133,7 +133,7 @@ export const fetchTVGenres = () => (dispatch) => {
     dispatch(genresLoading(true));
 
     
-    axios.get(baseUrl + "genre/tv/list", {
+    return axios.get(baseUrl + "genre/tv/list", {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
     }})
@@ -159,7 +159,7 @@ export const fetchDiscoverMovies = (with_genres, sort) => (dispatch) => {
 
     dispatch(discoverLoading(true));
 
-    axios.get(baseUrl + "discover/movie", {
+    return axios.get(baseUrl + "discover/movie", {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
             with_genres: with_genres.join(),
@@ -174,7 +174,7 @@ export const fetchDiscoverTV = (with_genres, sort) => (dispatch) => {
 
     dispatch(discoverLoading(true));
 
-    axios.get(baseUrl + "discover/tv", {
+    return axios.get(baseUrl + "discover/tv", {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2",
             with_genres: with_genres.join(),
@@ -202,7 +202,7 @@ export const addGet = (result) => ({
 export const fetchMovieDetails = (id) => (dispatch) => {
     dispatch(getLoading(true));
 
-    axios.get(baseUrl + "movie/"+id, {
+    return axios.get(baseUrl + "movie/"+id, {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
         }
@@ -214,7 +214,7 @@ export const fetchMovieDetails = (id) => (dispatch) => {
 export const fetchTVDetails = (id) => (dispatch) => {
     dispatch(getLoading(true));
 
-    axios.get(baseUrl + "tv/"+id, {
+    return axios.get(baseUrl + "tv/"+id, {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
         }
@@ -227,7 +227,7 @@ export const fetchPersonDetails = (id) => (dispatch) => {
     dispatch(getLoading(true));
 
 
-    axios.get(baseUrl + "person/"+id, {
+    return axios.get(baseUrl + "person/"+id, {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
         }

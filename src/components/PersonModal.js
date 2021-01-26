@@ -3,7 +3,7 @@ import Loading from "./Loading";
 import { imageUrlOriginal } from "../shared/baseUrl";
 
 function PersonModalDetail({ details, detailloading, detailerr, toggle }) {
-    if (detailloading === true ) {
+    if (detailloading === true || details===null) {
         return (
             <><ModalHeader toggle={toggle}>Loading</ModalHeader>
             <ModalBody>
