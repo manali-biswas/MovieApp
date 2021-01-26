@@ -3,7 +3,7 @@ import { Trending } from "./trending";
 import { Search } from "./search";
 import { Genres } from "./genres";
 import { Discover } from "./discover";
-import { Object } from "./object";
+import { Detail } from "./object";
 import thunk from "redux-thunk";
 
 export const configureStore = () => {
@@ -13,7 +13,7 @@ export const configureStore = () => {
             search: Search,
             genres: Genres,
             discover: Discover,
-            object: Object
+            object: Detail
         }),
         applyMiddleware(thunk)
     );

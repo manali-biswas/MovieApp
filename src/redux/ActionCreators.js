@@ -171,7 +171,7 @@ export const fetchDiscoverMovies = (with_genres, sort) => (dispatch) => {
 }
 
 export const fetchDiscoverTV = (with_genres, sort) => (dispatch) => {
-
+    
     dispatch(discoverLoading(true));
 
     return axios.get(baseUrl + "discover/tv", {
@@ -194,20 +194,20 @@ export const loadingFailed = (err) => ({
     payload: err
 })
 
-export const addGet = (result) => ({
+export const addDetail = (result) => ({
     type: ActionTypes.ADD_GET,
     payload: result
 })
 
-export const fetchMovieDetails = (id) => (dispatch) => {
+export const fetchMovieDetails = (id) => (dispatch) => {   
     dispatch(getLoading(true));
-
+    
     return axios.get(baseUrl + "movie/"+id, {
         params: {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
         }
     })
-        .then(response =>  dispatch(addGet(response.data)) )
+        .then(response =>  dispatch(addDetail(response.data)) )
         .catch(err => dispatch(loadingFailed(err.message)));
 }
 
@@ -219,7 +219,7 @@ export const fetchTVDetails = (id) => (dispatch) => {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
         }
     })
-        .then(response =>  dispatch(addGet(response.data)) )
+        .then(response =>  dispatch(addDetail(response.data)) )
         .catch(err => dispatch(loadingFailed(err.message)));
 }
 
@@ -232,6 +232,6 @@ export const fetchPersonDetails = (id) => (dispatch) => {
             api_key: "0075ac9def7d3aecd8c4080563e3bcd2"
         }
     })
-        .then(response =>  dispatch(addGet(response.data)) )
+        .then(response =>  dispatch(addDetail(response.data)) )
         .catch(err => dispatch(loadingFailed(err.message)));
 }

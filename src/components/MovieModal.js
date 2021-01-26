@@ -3,7 +3,7 @@ import Loading from "./Loading";
 import { imageUrlOriginal } from "../shared/baseUrl";
 
 function MovieModalDetail({ details, detailloading, detailerr, toggle }) {
-    if (detailloading === true || details===null) {
+    if (detailloading === true) {
         return (
             <><ModalHeader toggle={toggle}>Loading</ModalHeader>
             <ModalBody>
