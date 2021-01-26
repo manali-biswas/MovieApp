@@ -7,7 +7,7 @@ function RenderPerson({ person, details, detailloading, detailerr, modal,ModalTo
         <div>
         <Media key={person.id} tag="li" className="mt-3">
             <Media left>
-                <Media object src={imageUrl + person.profile_path} alt={person.name} width="128px" />
+                <Media object src={imageUrl + person.profile_path} alt={person.name} width="128px" className="rounded" />
             </Media>
             <Media body className="ml-5">
                 <Media heading>

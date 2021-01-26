@@ -71,7 +71,7 @@ class Carousel extends Component{
             <CSSTransition key={this.state.activeslide} addEndListener={(node,done)=>{node.addEventListener("transitionend",done,false)}} classNames="mycarousel" timeout={500}>
             <Row className="container">
                     <div className="col-md-4">
-                        <img src={this.state.slide.src} width="100%" alt={this.state.slide.alt} />
+                        <img src={this.state.slide.src} width="100%" alt={this.state.slide.alt} className="rounded" />
                     </div>
                     <div className="col-md-8 d-flex flex-column justify-content-center">
                         <h4>{this.state.slide.alt}</h4>

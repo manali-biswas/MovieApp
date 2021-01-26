@@ -7,7 +7,7 @@ function RenderMovie({ movie, details, detailloading, detailerr, modal, onModalC
         <div>
         <Media key={movie.id} tag="li" className="mt-3">
             <Media left>
-                <Media object src={imageUrl + movie.poster_path} alt={movie.title} width="128px" />
+                <Media object src={imageUrl + movie.poster_path} alt={movie.title} width="128px" className="rounded" />
             </Media>
             <Media body className="ml-5">
                 <Media heading>

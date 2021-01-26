@@ -7,7 +7,7 @@ function RenderTV({ tv, details, detailloading, detailerr, modal, ModalToggle, o
         <div>
         <Media key={tv.id} tag="li" className="mt-3">
             <Media left>
-                <Media object src={imageUrl + tv.poster_path} alt={tv.original_name} width="128px" />
+                <Media object src={imageUrl + tv.poster_path} alt={tv.original_name} width="128px" className="rounded" />
             </Media>
             <Media body className="ml-5">
                 <Media heading>
