@@ -84,7 +84,7 @@ function TVModal({id,onModalClick,modal,ModalToggle,detailerr,detailloading,deta
         return (
             <div>
             <Button color="dark" onClick={onModalClick} id="tv" name={id}>More Info</Button>
-            <Modal isOpen={modal.id===id?modal.value:false} toggle={ModalToggle}>
+            <Modal isOpen={parseInt(modal.id)===id?modal.value:false} toggle={ModalToggle}>
                     <TVModalDetail toggle={ModalToggle} detailerr={detailerr} detailloading={detailloading} details={details}/>
             </Modal></div>
         )

@@ -21,17 +21,17 @@ class Trending extends Component{
         switch (this.props.choice) {
             case "movie":
                 itemslist=this.props.results.map((item) => {
-                    return (<RenderMovie modal={this.props.modal} details={this.props.details} detailloading={this.props.detailloading} detailerr={this.props.detailerr} ModalToggle={this.props.ModalToggle} onModalClick={this.props.onModalClick} movie={item}/>)
+                    return (<RenderMovie key={item.id} modal={this.props.modal} details={this.props.details} detailloading={this.props.detailloading} detailerr={this.props.detailerr} ModalToggle={this.props.ModalToggle} onModalClick={this.props.onModalClick} movie={item}/>)
                 });
                 break;
             case "tv":
                 itemslist=this.props.results.map((item) => {
-                    return (<RenderTV modal={this.props.modal} details={this.props.details} detailloading={this.props.detailloading} detailerr={this.props.detailerr} ModalToggle={this.props.ModalToggle} onModalClick={this.props.onModalClick} tv={item}/>)
+                    return (<RenderTV key={item.id} modal={this.props.modal} details={this.props.details} detailloading={this.props.detailloading} detailerr={this.props.detailerr} ModalToggle={this.props.ModalToggle} onModalClick={this.props.onModalClick} tv={item}/>)
                 });
                 break;
             case "person":
                 itemslist=this.props.results.map((item) => {
-                    return(<RenderPerson modal={this.props.modal} details={this.props.details} detailloading={this.props.detailloading} detailerr={this.props.detailerr} ModalToggle={this.props.ModalToggle} onModalClick={this.props.onModalClick} person={item}/>)
+                    return(<RenderPerson key={item.id} modal={this.props.modal} details={this.props.details} detailloading={this.props.detailloading} detailerr={this.props.detailerr} ModalToggle={this.props.ModalToggle} onModalClick={this.props.onModalClick} person={item}/>)
                 });
                 break;
         

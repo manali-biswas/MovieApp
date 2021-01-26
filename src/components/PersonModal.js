@@ -61,7 +61,7 @@ function PersonModal({id,onModalClick,modal,ModalToggle,detailerr,detailloading,
         return (
             <div>
             <Button color="dark" onClick={onModalClick} id="person" name={id}>More Info</Button>
-            <Modal className="modal-lg" isOpen={modal.id===id?modal.value:false} toggle={ModalToggle}>
+            <Modal className="modal-lg" isOpen={parseInt(modal.id)===id?modal.value:false} toggle={ModalToggle}>
                     <PersonModalDetail toggle={ModalToggle} detailerr={detailerr} detailloading={detailloading} details={details}/>
             </Modal></div>
         )

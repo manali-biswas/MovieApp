@@ -84,14 +84,14 @@ class Main extends Component{
         this.props.fetchPerson();
     }
 
-    ModalToggle(id,type) {
+    ModalToggle(id, type) {
         this.setState({
             modal: {
                 id: id,
                 type: type,
-                value:!this.state.modal.value
+                value: !this.state.modal.value
             }
-        })
+        });
     }
 
     onModalClick(event) {

@@ -190,7 +190,7 @@ export const getLoading = () => ({
 })
 
 export const loadingFailed = (err) => ({
-    type: ActionTypes.GET_LOADING,
+    type: ActionTypes.GET_FAILED,
     payload: err
 })
 
